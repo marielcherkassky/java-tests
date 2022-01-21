@@ -38,6 +38,7 @@ test> db.createUser({user:"test-user", pwd:"secret", roles: [ {role:"readWrite",
 <h3>Tips</h3>
 1. Check what version of spring you are using. The new versions of spring include JUnit v5.
 2. Check what verison of junits you are using (4/5) : 
+
 ```
 // JUnit 4
 import org.junit.Test;
