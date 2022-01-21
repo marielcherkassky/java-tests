@@ -1,0 +1,13 @@
+spring:
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.mongo.MongoAutoConfiguration
+      - org.springframework.boot.autoconfigure.data.mongo.MongoDataAutoConfiguration
+db:
+  mongo:
+    host: localhost
+    db: test
+    user: test-user
+    password: secret
+    tables:
+      books: books
