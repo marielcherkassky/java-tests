@@ -6,7 +6,7 @@ docker run -d --name mongo-db -e MONGO_INITDB_ROOT_USERNAME=mariel -e MONGO_INIT
 ```
 
 2. Login to the mongo db with the root user you specified in th docker command : 
-```aidl
+```
 $ ./mongosh.exe -u mariel
 Enter password: secret
 ******
@@ -24,10 +24,10 @@ For mongosh info see: https://docs.mongodb.com/mongodb-shell/
 ------
 
 test>
-
 ```
+
 3. Create user for app : 
-```aidl
+```
 mongo> use test
 switched to db test
 
@@ -38,13 +38,14 @@ test> db.createUser({user:"test-user", pwd:"secret", roles: [ {role:"readWrite",
 <h3>Tips</h3>
 1. Check what version of spring you are using. The new versions of spring include JUnit v5.
 2. Check what verison of junits you are using (4/5) : 
-```aidl
+```
 // JUnit 4
 import org.junit.Test;
 
 // JUnit Jupiter (part of JUnit 5)
 import org.junit.jupiter.api.Test;
 ```
+
 <h3>Test Annotations</h3>
 1. `@SpringBootTest` - This annotation is used to load complete application context for end to end integration testing. As part of the background magic, the annotation will scan and <b>start ALL beans </b> in our main spring boot classes.
 2. `@RunWith(SpringRunner.class)`/`@RunWith(SpringJUnit4ClassRunner.class)` - `SpringRunner` is only available on spring-test 4.3 and it basically a new name for `SpringJUnit4ClassRunner`. You need this annotation to just enable spring boot features like `@Autowire`, `@MockBean` etc.. during junit testing. From some spring version, the @ExtendWidth(SpringExtension.class) replace these annotations. The big idea here is to add to Junit(v5) some of Spring power (e.g Autowired) without loading all the spring context. You should use this annotation when you really need spring, like when you InjectMocks and Mock annotations.
