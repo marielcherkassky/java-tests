@@ -36,7 +36,7 @@ public class MongoBookRepositoryTest {
     @Test
     public void saveBookTest(){
         var db = Mockito.mock(MongoDatabase.class, Mockito.RETURNS_DEEP_STUBS);
-        when(mongoClient.getDatabase(anyString())).thenReturn(Mockito.mock(MongoDatabase.class));
+        when(mongoClient.getDatabase(anyString())).thenReturn(db);
         Book book = new Book("id","name","author", Set.of(Genre.ACTION));
         String result = this.mongoBookRepository.saveBook(book);
         Assertions.assertEquals(book.getId(),result);
