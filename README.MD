@@ -8,9 +8,19 @@
 6. `@Profile("!test")` - If you want to make some beans unavailable for testing, you can just add a profile on top of the bean creation (class or method). Remember to make sure that a bean of that type available for testing.
 With JUnit 5, you must use `@ExtendWith(MockitoExtension.class)`
 
+<h3> Tests Examples </h3>
+
+1. `MongoClientTest` - This test class uses the `@ExtendWith`, `@InjectMock` and `@Mock` annotations. This is a simple unit test of a spring bean. The test doesnt load the entire spring context.
+2. `MongoPropertiesTest` - This is a unit test that meant to cover the functionality of a simple spring bean. The test loads  spring's context via `@SpringBoot` annotation but only with 1 bean initialized. The reason I had to start here a spring context is because I wanted to test the functionality of a bean that uses one of spring's main features - [Externalized Configuration](https://docs.spring.io/spring-boot/docs/current/reference/html/features.html#features.external-config).
+3. `MongoBookRepositoryTest` - This is an example for an integration test. Therefore, I had to load the entire spring context via `@SpringBootTest` annotation. This test also uses the `@InjectMocks` and `@MockBean` annotations. It is a good example for a situation where you need to use the  `@MockBean` and not `Mock` (try to run it to understand :)) annotation.
+4. `MappingUnitTest` - A simple unit test without any special annotations.
+
+I intend to upload more examples of tests with different annotations in the future. For now, I think that those examples are enough for the basics of testing with java and spring.
+
 <h3>Tips</h3>
-1. Check what version of spring you are using. The new versions of spring include JUnit v5.
-2. Check what verison of junits you are using (4/5) : 
+
+1.Check what version of spring you are using. The new versions of spring include JUnit v5.
+2.Check what verison of junits you are using (4/5) : 
 
 ```
 // JUnit 4
@@ -22,7 +32,12 @@ import org.junit.jupiter.api.Test;
 
 
 <h3>Running the service</h3>
-
+The whole idea behind this project isnt the actual service that was written but rather the tests that were added in order to cover the service's functionality.
+However, if you still want to run the service, you will need a mongo db instance up and running. You can use the following guide to start a mongo instance :
+0. Download the mongo image :
+```
+docker pull mongo:latest
+```
 1. create mongodb container :
 ```
 docker run -d --name mongo-db -e MONGO_INITDB_ROOT_USERNAME=mariel -e MONGO_INITDB_ROOT_PASSWORD=secret -p 27017:27017 mongo
@@ -57,3 +72,5 @@ switched to db test
 test> db.createUser({user:"test-user", pwd:"secret", roles: [ {role:"readWrite", db: "test"}]})
 { ok: 1 }
 ```
+
+4. Run the service
