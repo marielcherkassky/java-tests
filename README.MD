@@ -1,3 +1,11 @@
+<h3>Hey all !</h3>
+
+The goal of this repo is to help people who didnt write java tests for a while remove the rust from their hands. If you never wrote a test in java (with spring) it might also be usefull for you. The main focus here was on basic testing with some of the more common spring/junit annotations. I hope to find some time in the future in order to add more testing examples. 
+
+Feel free to open issues or event prs.
+
+Enjoy !
+
 <h3> Test Annotations </h3>
 
 1. `SpringBootTest` - This annotation is used to load complete application context for end to end integration testing. As part of the background magic, the annotation will scan and <b>start ALL beans </b> in our main spring boot classes. If you will keep reading, you will find out that we can also load specific beans with this annotation.
