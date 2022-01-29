@@ -1,8 +1,8 @@
 <h3>Hey all !</h3>
 
-The goal of this repo is to help people who didnt write java tests for a while remove the rust from their hands. If you never wrote a test in java (with spring) it might also be usefull for you. The main focus here was on basic testing with some of the more common spring/junit annotations. I hope to find some time in the future in order to add more testing examples. 
+The goal of this repo is to help people who didnt write java tests for a while remove the rust from their hands. If you never wrote  tests in java (with or without spring) it might also be usefull for you. The main focus here was on basic testing with some of the most common spring/junit annotations. I hope to find some time in the future in order to add more testing examples. 
 
-Feel free to open issues or event prs.
+Feel free to open issues or even PRs.
 
 Enjoy !
 
